@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #1c1c21;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: normal;
+	font-weight: 200;
+	width: 100%;
+	
+}
+
+binnencontainer {
+    max-width: 1200px !important;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    display: inherit;
+}
+
+.Tekstvak1 {
+	background-color: #252529;
+	height: 290px;
+	padding-right: 50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-top: 30px solid #1C1C21;
+}
+
+.Titel1 {
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 50px;
+	padding-top: 50px;
+	letter-spacing: 2px;
+	margin-top: 0px;
+}
+.Tekst1 {
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 50px;
+	padding-bottom: 50px;
+	width: 95%;
+	float: left;
+	font-weight: lighter;
+	line-height: 23px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.Tekstvak2 {
+	background-color: #252529;
+	height: 290px;
+	padding-right: 50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-top: 30px solid #1C1C21;
+}
+
+.Titel2 {
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 50px;
+	padding-top: 50px;
+	letter-spacing: 2px;
+	margin-top: 0px;
+}
+.Tekst2 {
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 50px;
+	padding-bottom: 50px;
+	width: 95%;
+	float: left;
+	font-weight: lighter;
+	line-height: 23px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
