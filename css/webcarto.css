@@ -22,6 +22,86 @@ binnencontainer {
     display: inherit;
 }
 
+buitenbalk {
+    width: 100%;
+     background-color: #1c1c21;
+    border-bottom: 0px solid #2C9AB7;
+    position: fixed;
+    z-index: 99999;
+    left: 0px;
+    vertical-align: middle;
+
+}
+
+header {
+    max-width: 1200px;
+    text-align: left;
+    float: none;
+    margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;	
+}
+
+nav {
+	float: right;
+	width: 50%;
+	text-align: right;
+	margin-right: 25px;
+}
+
+header nav ul {
+	list-style: none;
+	float: right;
+}
+
+nav ul li {
+	float: left;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	margin-right: 25px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	transition: all 0s linear;
+}
+
+ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+ul li:hover a {
+	color: #2C9AB7;
+}
+
+a {
+	color: #FEFEFE;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #C4C4C4;	
+}
+
+.frontPageContainer {
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	letter-spacing: 4px;
+}
+
+.frontPageImage {
+	background-image: url("../images/mexicoStreet.jfif");
+	padding-top: 449px;
+	padding-bottom: 380px;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .Tekstvak1 {
 	background-color: #252529;
 	height: 290px;
@@ -121,7 +201,7 @@ achtergrond {
 .kader_links {
 	margin-top: 30px;
 	width: 35.5%;
-	background-image: url("../../../OneDrive - Aeres Groep/Afbeeldingen/Boreal-forest-with-river-arctic-Norway.jpg");
+	background-image:;
 	text-align: left !important;
 	display: inline-block;
 	float: left;
@@ -146,13 +226,13 @@ achtergrond {
 .kader_links2 {
 	margin-top: 30px;
 	width: 35.5%;
-	background-image: url("../images/MapUnsplash.jfif");
+	background-image: url("../images/mexicoStreet.jfif");
 	text-align: left !important;
 	display: inline-block;
 	float: right;
 	padding: 50px;
 	height: 320px;
-	background-size: 100%;
+	background-size: 120%;
 	background-repeat: no-repeat;
 	
 }
