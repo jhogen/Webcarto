@@ -24,13 +24,13 @@ binnencontainer {
 
 buitenbalk {
     width: 100%;
-     background-color: #1c1c21;
+    background-color: #1c1c21;
     border-bottom: 0px solid #2C9AB7;
     position: fixed;
     z-index: 99999;
     left: 0px;
     vertical-align: middle;
-
+	filter: drop-shadow(2px 4px 2px #000000);
 }
 
 header {
@@ -39,7 +39,8 @@ header {
     float: none;
     margin: 0 auto;
 	padding-top: 10px;
-	padding-bottom: 10px;	
+	padding-bottom: 10px;
+	filter: drop-shadow(1.5px 1.5px 2px #000000);
 }
 
 nav {
@@ -83,6 +84,14 @@ a:hover {
 	color: #C4C4C4;	
 }
 
+h2 {
+  text-shadow: 2px 2px 1px #000000;
+}
+
+h4 {
+  text-shadow: 1.5px 1.5px 1px #000000;
+}
+
 .frontPageContainer {
 	color: #FFFFFF;
 	text-align: center;
@@ -94,15 +103,16 @@ a:hover {
 }
 
 .frontPageImage {
-	background-image: url("../images/mexicoStreet.jfif");
-	padding-top: 449px;
+	background-image: url("../images/zapopanNature.jfif");
+	filter: drop-shadow(2px 4px 2px #000000);
+	padding-top: 349px;
 	padding-bottom: 380px;
 	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.Tekstvak1 {
+.tekstvak1 {
 	background-color: #252529;
 	height: 290px;
 	padding-right: 50px;
@@ -111,7 +121,7 @@ a:hover {
 	border-top: 30px solid #1C1C21;
 }
 
-.Titel1 {
+.titel1 {
 	color: #FFFFFF;
 	text-align: left;
 	padding-left: 50px;
@@ -119,7 +129,7 @@ a:hover {
 	letter-spacing: 2px;
 	margin-top: 0px;
 }
-.Tekst1 {
+.tekst1 {
 	color: #FFFFFF;
 	text-align: left;
 	padding-left: 50px;
@@ -134,16 +144,8 @@ a:hover {
 	margin-left: 0px;
 }
 
-.Tekstvak2 {
-	background-color: #252529;
-	height: 290px;
-	padding-right: 50px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	border-top: 30px solid #1C1C21;
-}
 
-.TitelSplits1 {
+.titelSplits1 {
 	color: #FFFFFF;
 	text-align: left;
 	padding-left: 0px;
@@ -151,34 +153,10 @@ a:hover {
 	letter-spacing: 2px;
 	margin-top: 0px;
 }
-.TekstSplits1 {
+.tekstSplits1 {
 	color: #FFFFFF;
 	text-align: left;
 	padding-left: 0px;
-	padding-bottom: 50px;
-	width: 95%;
-	float: left;
-	font-weight: lighter;
-	line-height: 23px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-}
-
-.Titel2 {
-	color: #FFFFFF;
-	text-align: left;
-	padding-left: 50px;
-	padding-top: 50px;
-	letter-spacing: 2px;
-	margin-top: 0px;
-}
-
-.Tekst2 {
-	color: #FFFFFF;
-	text-align: left;
-	padding-left: 50px;
 	padding-bottom: 50px;
 	width: 95%;
 	float: left;
@@ -201,7 +179,6 @@ achtergrond {
 .kader_links {
 	margin-top: 30px;
 	width: 35.5%;
-	background-image:;
 	text-align: left !important;
 	display: inline-block;
 	float: left;
@@ -209,6 +186,7 @@ achtergrond {
 	height: 320px;
 	background-size: 100%;
 	background-repeat: no-repeat;
+	filter: drop-shadow(3px 5px 2px #000000);
 	
 }
 
@@ -225,15 +203,15 @@ achtergrond {
 
 .kader_links2 {
 	margin-top: 30px;
-	width: 35.5%;
-	background-image: url("../images/mexicoStreet.jfif");
+	width: 43.75%;
 	text-align: left !important;
 	display: inline-block;
 	float: right;
-	padding: 50px;
+	padding: 0px;
 	height: 320px;
-	background-size: 120%;
+	background-size: 100%;
 	background-repeat: no-repeat;
+	filter: drop-shadow(3px 5px 2px #000000);
 	
 }
 
@@ -244,6 +222,32 @@ achtergrond {
 	text-align: left !important;
 	display: inline-block;
 	float: left;
+	padding: 50px;
+	height: 320px;
+}
+
+.kader_links3 {
+	margin-top: 30px;
+	width: 43.75%;
+	background-image: url("../images/minion.jfif");
+	text-align: left;
+	display: inline-block;
+	float: left;
+	padding: 0px;
+	height: 320px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	filter: drop-shadow(3px 5px 2px #000000);
+	
+}
+
+.kader_rechts3 {
+	margin-top: 30px;
+	width: 45.5%;
+	background-color: #252529 !important;
+	text-align: left !important;
+	display: inline-block;
+	float: right;
 	padding: 50px;
 	height: 320px;
 }
