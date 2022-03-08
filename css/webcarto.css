@@ -48,6 +48,7 @@ nav {
 	width: 50%;
 	text-align: right;
 	margin-right: 25px;
+	filter: drop-shadow(2px 4px 2px #000000);
 }
 
 header nav ul {
@@ -90,6 +91,10 @@ h2 {
 
 h4 {
   text-shadow: 1.5px 1.5px 1px #000000;
+}
+
+.logoMexico{
+	filter: drop-shadow(2px 4px 2px #000000);	
 }
 
 .frontPageContainer {
