@@ -12,6 +12,7 @@
 <script src="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.js"></script>
 <link href="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/css/ol.css" type="text/css" />
+<script src="https://wms-viewer-online.appspot.com/api/wmsmapviewer.js" type="text/javascript"> </script>
 <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/build/ol.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style@6.1.4/dist/olms.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
@@ -44,17 +45,17 @@
 	  
 	 <nav>
       <ul>
-		<li><a href="HomePage.html"><span style="color:#f8ce53">TESTTEST</span></a></li>
-        <li><a href="PearlRiver.html">TESTTEST</a></li>
-        <li> <a href="MekongRiver.html">TESTTEST</a></li>
+		<li><a href="index.html"><span style="color:#f8ce53">HOME</span></a></li>
+        <li><a href="https://nl.wikipedia.org/wiki/Guadalajara_(Jalisco)">GUADALAJARA</a></li>
+        <li> <a href="https://nl.wikipedia.org/wiki/Jalisco">JALISCO</a></li>
+		<li><a href="https://nl.wikipedia.org/wiki/Mexico_(land)">MEXICO</a></li>
       </ul>
   	</nav>
   </header>
 </buitenbalk>
 	
-	
 <section class="frontPageImage" id="frontPageImage">
-    <h2 class="frontPageContainer">DE SCHOONHEID VAN JALISCO</h2>
+    <h2 class="frontPageContainer">ALLES OVER GUADALAJARA, JALISCO EN MÉXICO</h2>
 </section>
 	
 <section class="tekstvak1">
@@ -98,9 +99,7 @@
 <achtergrond>
   <div class="kader_links3">
 	  <div id="mapLibre" style="width: 100%; height: 420px;"></div>
-	  
-<script type="text/javascript" src="js/mapLibre.txt"></script>
-	  
+		<script type="text/javascript" src="js/mapLibre.txt"></script>  
   </div>
   
   <div class="kader_rechts3">
@@ -133,78 +132,61 @@
 <achtergrond>
   <div class="kader_links3">
 	  <div id="mapWMS" style="width: 100%; height: 420px;"></div>
-	  
-	  <script>
-    function getExtentCoordinatesFromBounds(bounds) {
-      return [
-        bounds.getNorthWest().toArray(),
-        bounds.getNorthEast().toArray(),
-        bounds.getSouthEast().toArray(),
-        bounds.getSouthWest().toArray()
-      ];
-    }
-    function wmsExtent130FromBounds(bounds) {
-      var sm = new SphericalMercator({
-        size: 256
-      });
-      return [
-        ...sm.forward(bounds.getSouthWest().toArray()),
-        ...sm.forward(bounds.getNorthEast().toArray())
-      ];
-    }
-    function addSingleWms(map, baseUrl) {
-      return function() {
-        var myCanvas = map.getCanvas();
-        var myBounds = map.getBounds();
-        var imageCoordinates = getExtentCoordinatesFromBounds(myBounds);
-        var imageExtent3857 = wmsExtent130FromBounds(myBounds);
-        if (map.getSource(sourceName) && map.getLayer(wmsLayerName)) {
-            map.removeLayer(wmsLayerName);
-            map.removeSource(sourceName);
-        }
-        var urlWms = `${baseUrl}?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=true&LAYERS=topp:states&CRS=EPSG:3857&STYLES=&FORMAT_OPTIONS=dpi:180&WIDTH=${myCanvas.width / window.devicePixelRatio}&HEIGHT=${myCanvas.height / window.devicePixelRatio}&BBOX=${imageExtent3857.join(',')}`;
-        map.addSource(sourceName, {
-          'type': 'image',
-          'url': urlWms,
-          'coordinates': imageCoordinates
-        });
-        map.addLayer({
-          'id': wmsLayerName,
-          'type': 'raster',
-          'source': sourceName,
-          'paint': {}
-        });
-      }
-    }
-    var map = new mapboxgl.Map({
-      container: 'mapWMS',
-      style: {
-        "version": 8,
-        "sources": {
-          "raster-tiles": {
-            "type": "raster",
-            "tiles": ["a", "b", "c"].map(subdomain => "https://" + subdomain + ".tile.openstreetmap.org/{z}/{x}/{y}.png"),
-            "tileSize": 256
-          }
-        },
-        "layers": [{
-          "id": "simple-tiles",
-          "type": "raster",
-          "source": "raster-tiles",
-          "minzoom": 0,
-          "maxzoom": 20
-        }]
-      },
-      zoom: 8,
-      center: [-103.349609, 20.659698]
-    });
+	 <script>
+	 //Initialize a map instance.
+var map = new atlas.Map('map', {
+    center: [-73.985708, 40.75773],
+    zoom: 12,
+    view: "Auto",
+    //Add your Azure Maps subscription client ID to the map SDK.
+    authOptions: {
+        authType: "anonymous",
+        clientId: "04ec075f-3827-4aed-9975-d56301a2d663", //Your Azure Maps account Client ID is required to access your Azure Maps account.
+   
+    getToken: function (resolve, reject, map) {
+      //URL to your authentication service that retrieves an Azure Active Directory Token.
+      var tokenServiceUrl = "https://azuremapscodesamples.azurewebsites.net/Common/TokenService.ashx";
 
-    var sourceName = 'wms-test-source';
-    var wmsLayerName = 'wms-test-layer';
-    var baseUrl = 'https://ahocevar.com/geoserver/wms';
-    map.on('load', addSingleWms(map, baseUrl));
-    map.on('moveend', addSingleWms(map, baseUrl));
-</script>
+      fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
+    }
+    }
+});
+
+var client, capabilities;
+
+//Wait until the map resources are ready.
+map.events.add('ready', function() {
+    //Create a data source and add it to the map.
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+    //Add a simple data layer for rendering the data.
+    layer = new atlas.layer.SimpleDataLayer(datasource);
+    map.layers.add(layer);
+    //Create the WFS client to access the service. 
+    client = new atlas.io.ogc.WfsClient({
+        url: 'https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_mthly_precip_outlk/MapServer/WFSServer?request=GetCapabilities&service=WFS'
+    });
+    //Request features from the service.
+    client.getFeatures({
+        typeNames: 'Monthly_Precipitation_Outlook',
+        count: 50
+    }).then(fc => {
+        if (fc) {
+            //Add the returned features to the map.
+            datasource.add(fc);
+            //If there is a bounding box, update the map view.
+            if (fc.bbox) {
+                map.setCamera({
+                    bounds: fc.bbox,
+                    padding: 50
+                });
+            }
+        }
+    }, error => {
+        alert(error);
+    });
+});
+	 </script>
 	  
   </div>
   
@@ -219,10 +201,9 @@
 
 <achtergrond>
   <div class="kader_links2">
-	<iframe title=" " aria-label="Arrow Plot" id="datawrapper-chart-a1tfD" src="https://datawrapper.dwcdn.net/a1tfD/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="420"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
-</script>
+	<iframe title=" " aria-label="Arrow Plot" id="datawrapper-chart-a1tfD" src="https://datawrapper.dwcdn.net/a1tfD/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="420"></iframe>
+	 <script type="text/javascript" src="js/dataWrapper.txt"></script>
 	</div>
-  </div>
   
   <div class="kader_rechts2">
   	<h4 class="titelSplits1">
@@ -242,7 +223,7 @@
   
   <div class="kader_rechts3">
     <h4 class="titelSplits1">
-		<span style="color:#f8ce53">INTRODUCTION</span>
+		<span style="color:#f8ce53">DE POPULATIE VAN MEXICO IN VERHOUDING TOT DE MEEST BEVOLKTE LANDEN DOOR DE TIJD HEEN</span>
 	</h4>
   		<p class="tekstSplits1">The Mekong River is one of the most important rivers in South-Eastern Asia, it flows through 6 countries and it ends into the biggest delta in the region. Even though the river has always been tough to navigate for ships, it has maintained an important status throughout history and continues to do so.</p>
   		<br>
