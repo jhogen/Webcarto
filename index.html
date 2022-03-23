@@ -134,58 +134,14 @@
 	  <div id="mapWMS" style="width: 100%; height: 420px;"></div>
 	 <script>
 	 //Initialize a map instance.
-var map = new atlas.Map('map', {
-    center: [-73.985708, 40.75773],
-    zoom: 12,
-    view: "Auto",
-    //Add your Azure Maps subscription client ID to the map SDK.
-    authOptions: {
-        authType: "anonymous",
-        clientId: "04ec075f-3827-4aed-9975-d56301a2d663", //Your Azure Maps account Client ID is required to access your Azure Maps account.
-   
-    getToken: function (resolve, reject, map) {
-      //URL to your authentication service that retrieves an Azure Active Directory Token.
-      var tokenServiceUrl = "https://azuremapscodesamples.azurewebsites.net/Common/TokenService.ashx";
-
-      fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
-    }
-    }
-});
-
-var client, capabilities;
-
-//Wait until the map resources are ready.
-map.events.add('ready', function() {
-    //Create a data source and add it to the map.
-    datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
-    //Add a simple data layer for rendering the data.
-    layer = new atlas.layer.SimpleDataLayer(datasource);
-    map.layers.add(layer);
-    //Create the WFS client to access the service. 
-    client = new atlas.io.ogc.WfsClient({
-        url: 'https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_mthly_precip_outlk/MapServer/WFSServer?request=GetCapabilities&service=WFS'
-    });
-    //Request features from the service.
-    client.getFeatures({
-        typeNames: 'Monthly_Precipitation_Outlook',
-        count: 50
-    }).then(fc => {
-        if (fc) {
-            //Add the returned features to the map.
-            datasource.add(fc);
-            //If there is a bounding box, update the map view.
-            if (fc.bbox) {
-                map.setCamera({
-                    bounds: fc.bbox,
-                    padding: 50
-                });
-            }
-        }
-    }, error => {
-        alert(error);
-    });
-});
+var map = L.map('mapWMS').setView([23.634501, -102.552788], 4);
+	
+	L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 20
+ }).addTo(mapWMS);
+		 
 	 </script>
 	  
   </div>
