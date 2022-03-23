@@ -99,7 +99,7 @@
 <achtergrond>
   <div class="kader_links3">
 	  <div id="mapLibre" style="width: 100%; height: 420px;"></div>
-		<script type="text/javascript" src="js/mapLibre.txt"></script>  
+		<script type="text/javascript" src="js/mapLibre.js"></script>  
   </div>
   
   <div class="kader_rechts3">
@@ -115,7 +115,7 @@
   <div class="kader_links4">
 	<div style="width: 100%">
 		<div id="mapOpenLayers" class="mapOpenLayers"></div>
-		<script type="text/javascript" src="js/mapOpenLayers.txt"></script>
+		<script type="text/javascript" src="js/mapOpenLayers.js"></script>
 	</div>
   </div>
   
@@ -134,7 +134,7 @@
 	  <div id="mapWMS" style="width: 100%; height: 420px;"></div>
 	 <script>
 	 //Initialize a map instance.
-var map = L.map('mapWMS').setView([23.634501, -102.552788], 4);
+var mapWMS = L.map('mapWMS').setView([23.634501, -102.552788], 4);
 	
 	L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -158,7 +158,7 @@ var map = L.map('mapWMS').setView([23.634501, -102.552788], 4);
 <achtergrond>
   <div class="kader_links2">
 	<iframe title=" " aria-label="Arrow Plot" id="datawrapper-chart-a1tfD" src="https://datawrapper.dwcdn.net/a1tfD/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="420"></iframe>
-	 <script type="text/javascript" src="js/dataWrapper.txt"></script>
+	 <script type="text/javascript" src="js/dataWrapper.js"></script>
 	</div>
   
   <div class="kader_rechts2">
@@ -188,6 +188,6 @@ var map = L.map('mapWMS').setView([23.634501, -102.552788], 4);
 	
 </binnencontainer>
 	
-<script type="text/javascript" src="js/mapLeaflet.txt"></script>
+<script type="text/javascript" src="js/mapLeaflet.js"></script>
 </body>
 </html>
