@@ -22,7 +22,7 @@
      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
      crossorigin=""></script>
 <style>
-	 .mapWMS {
+	 .mapWFS {
 	 	height:420px;
 	 	width: 100%;
 	 }
@@ -131,16 +131,35 @@
 
 <achtergrond>
   <div class="kader_links3">
-	  <div id="mapWMS" style="width: 100%; height: 420px;"></div>
+	  <div id="mapWFS" style="width: 100%; height: 420px;"></div>
+	  <button class="buttonKaart" id="Zoomin" onclick="zoomOnClick()">Inzoomen</button>
 	 <script>
 	 //Initialize a map instance.
-var mapWMS = L.map('mapWMS').setView([23.634501, -102.552788], 4);
+var mapWFS = L.map('mapWFS').setView([23.634501, -102.552788], 4);
 	
 	L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	subdomains: 'abcd',
 	maxZoom: 20
- }).addTo(mapWMS);
+ }).addTo(mapWFS);
+		 
+		   var x = L.geoJSON(myvar).addTo(mapWFS);  
+		 
+  const geoJsonLayer = L.geoJson().addTo(mapWFS);
+
+    function zoomOnClick() {
+      mapWFS.setView( [52.356249,5.620991], 12)
+
+      fetch('https://geodata.nationaalgeoregister.nl/locatieserver/v3/lookup?id=gem-f62e7c1f70b07988ba1715f232fe6fbe&fl=*')
+        .then(response => response.json())
+        .then(data => {
+          const wkt = data.response.docs[0].geometrie_ll
+		  
+          const geojson = Terraformer.wktToGeoJSON(wkt)
+          console.log(geojson)
+          geoJsonLayer.addData(geojson)
+        })
+    }
 		 
 	 </script>
 	  
