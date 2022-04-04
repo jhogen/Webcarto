@@ -12,6 +12,8 @@
 <script src="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.js"></script>
 <link href="https://unpkg.com/maplibre-gl@2.1.6/dist/maplibre-gl.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/css/ol.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/terraformer"></script>
+<script src="https://unpkg.com/@terraformer/wkt"></script>
 <script src="https://wms-viewer-online.appspot.com/api/wmsmapviewer.js" type="text/javascript"> </script>
 <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/build/ol.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style@6.1.4/dist/olms.js"></script>
@@ -131,24 +133,23 @@
 
 <achtergrond>
   <div class="kader_links3">
-	  <div id="mapWFS" style="width: 100%; height: 420px;"></div>
+	  <div id="mapAPI" style="width: 100%; height: 420px;"></div>
 	  <button class="buttonKaart" id="Zoomin" onclick="zoomOnClick()">Inzoomen</button>
 	 <script>
 	 //Initialize a map instance.
-var mapWFS = L.map('mapWFS').setView([23.634501, -102.552788], 4);
+var mapAPI = L.map('mapAPI').setView([23.634501, -102.552788], 4);
 	
 	L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	subdomains: 'abcd',
 	maxZoom: 20
- }).addTo(mapWFS);
+ }).addTo(mapAPI);
 		 
-		   var x = L.geoJSON(myvar).addTo(mapWFS);  
 		 
-  const geoJsonLayer = L.geoJson().addTo(mapWFS);
+  const geoJsonLayer = L.geoJson().addTo(mapAPI);
 
     function zoomOnClick() {
-      mapWFS.setView( [52.356249,5.620991], 12)
+      mapAPI.setView( [52.356249,5.620991], 11)
 
       fetch('https://geodata.nationaalgeoregister.nl/locatieserver/v3/lookup?id=gem-f62e7c1f70b07988ba1715f232fe6fbe&fl=*')
         .then(response => response.json())
