@@ -23,17 +23,6 @@
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
      crossorigin=""></script>
-<style>
-	 .mapWFS {
-	 	height:420px;
-	 	width: 100%;
-	 }
-      .mapOpenLayers {
-        height: 420px;
-        width: 100%;
-      }
-	
-</style>
 </head>
 
 <body>
@@ -57,12 +46,12 @@
 </buitenbalk>
 	
 <section class="frontPageImage" id="frontPageImage">
-    <h2 class="frontPageContainer">ALLES OVER GUADALAJARA, JALISCO EN MÉXICO</h2>
+    <h2 class="frontPageContainer">GUADALAJARA, JALISCO AND MÉXICO</h2>
 </section>
 	
 <section class="tekstvak1">
-	<h4 class="titel1"><span style="color:#f8ce53">JALISCO</span></h4>
-    	<p class="tekst1">Wat is dit voor staat, inwoners, enzo</p>
+	<h4 class="titel1"><span style="color:#f8ce53">THE MOST BEAUTIFUL PLACE</span></h4>
+    	<p class="tekst1">Have you ever thought about going on vacation? Well ofcourse you have. But have you thought about going to Mexico? Ofcourse you have! Well go to Jalisco then! We have it all, the beautiful sprawling city of Guadalajara, the steepest cliffs, the resort town of Puerto Vallarta and ofcourse... tequila! Come visit!</p>
 </section>
 	
 <achtergrond>
@@ -71,8 +60,11 @@
   </div>
   
   <div class="kader_rechts">
-    <h4 class="titelSplits1"><span style="color:#f8ce53">DE STAAT</span></h4>
-  		<p class="tekstSplits1">Jajaja tekstje over de ligging van staat hier</p>
+    <h4 class="titelSplits1"><span style="color:#f8ce53">MÉXICO AND JALISCO</span></h4>
+  		<p class="tekstSplits1">Chances are that you have looked at a map atleast once in your lifetime, but if you haven't, well this is what Mexico looks like. A huge country, bordering the United States, Guatemala and Belize.
+		<br><br>
+		We have also highlighted Jalisco, as not everyone knows where it's located and that's fine!
+	  	</p>
   		<br>
   </div>
 </achtergrond>
@@ -93,7 +85,9 @@
   	<h4 class="titelSplits1">
 		<span style="color:#f8ce53">TEQUILA</span>
 	</h4>
-  	<p class="tekstSplits1">Hier tekst over tequila en de agaveplantages</p>
+  	<p class="tekstSplits1">I won't leave you waiting any longer. We all know you're here for the tequila... And why wouldn't you be? Us Jalisciences make the best tequila, this is where it originated after all!
+	<br><br>	
+	Just look at the map, you will see the lovely town of Tequila right there! And if you look around town a little, you will see the endless fields of agave, the main ingredient of tequila!</p>
   	<br>
   </div>
 </achtergrond>
@@ -106,9 +100,9 @@
   
   <div class="kader_rechts3">
     <h4 class="titelSplits1">
-		<span style="color:#f8ce53">INTRODUCTION</span>
+		<span style="color:#f8ce53">MÉXICO AGAIN</span>
 	</h4>
-  		<p class="tekstSplits1">The Mekong River is one of the most important rivers in South-Eastern Asia, it flows through 6 countries and it ends into the biggest delta in the region. Even though the river has always been tough to navigate for ships, it has maintained an important status throughout history and continues to do so.</p>
+  		<p class="tekstSplits1">Time to freshen up your memory! Do you still know where Mexico is located? You do? Amazing! But if you don't, here's another map to show you where it's located, but this time it's a bit more colorful.</p>
   		<br>
   </div>
 </achtergrond>
@@ -123,9 +117,9 @@
   
   <div class="kader_rechts4">
   	<h4 class="titelSplits1">
-		<span style="color:#f8ce53">TEQUILA</span>
+		<span style="color:#f8ce53">SURPRISE! MÉXICO AGAIN!</span>
 	</h4>
-  	<p class="tekstSplits1">Hier tekst over tequila en de agaveplantages</p>
+  	<p class="tekstSplits1">I bet you almost forgot us already, so here's another map of Mexico! You will never get the image out of your head now!</p>
   	<br>
   
   </div>
@@ -134,44 +128,21 @@
 <achtergrond>
   <div class="kader_links3">
 	  <div id="mapAPI" style="width: 100%; height: 420px;"></div>
-	  <button class="buttonKaart" id="Zoomin" onclick="zoomOnClick()">Inzoomen</button>
-	 <script>
-	 //Initialize a map instance.
-var mapAPI = L.map('mapAPI').setView([23.634501, -102.552788], 4);
-	
-	L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
- }).addTo(mapAPI);
-		 
-		 
-  const geoJsonLayer = L.geoJson().addTo(mapAPI);
-
-    function zoomOnClick() {
-      mapAPI.setView( [52.356249,5.620991], 11)
-
-      fetch('https://geodata.nationaalgeoregister.nl/locatieserver/v3/lookup?id=gem-f62e7c1f70b07988ba1715f232fe6fbe&fl=*')
-        .then(response => response.json())
-        .then(data => {
-          const wkt = data.response.docs[0].geometrie_ll
-		  
-          const geojson = Terraformer.wktToGeoJSON(wkt)
-          console.log(geojson)
-          geoJsonLayer.addData(geojson)
-        })
-    }
-		 
-	 </script>
+	 <script type="text/javascript" src="js/mapAPI.js"></script>
 	  
   </div>
   
   <div class="kader_rechts3">
     <h4 class="titelSplits1">
-		<span style="color:#f8ce53">DE STAAT</span>
+		<span style="color:#f8ce53">MÉXI... WAIT NO THIS IS NOT MÉXICO?</span>
 	</h4>
-  		<p class="tekstSplits1">Jajaja tekstje over de ligging van staat hier</p>
-  		<br>
+	  	<p class="tekstSplits1">You might be getting overwhelmed by all the talking about Mexico, so here is perhaps the most uneventful and uninteresting city in the Netherlands: Harderwijk! You will really appreciate the character of Guadalajara after seeing this one.
+		<br><br>
+	  	Click the button if you want to zoom in to the city, I wouldn't recommend it...
+	  	</p>
+		<br>
+	  	
+	  	<div class="ButtonKaart" onclick="zoomOnClick()">ZOOM IN TO "HARDERWIJK"</div>
   </div>
 </achtergrond>
 
@@ -183,14 +154,14 @@ var mapAPI = L.map('mapAPI').setView([23.634501, -102.552788], 4);
   
   <div class="kader_rechts2">
   	<h4 class="titelSplits1">
-		<span style="color:#f8ce53">DE 20 GROOTSTE STEDEN VAN DE STAAT</span>
+		<span style="color:#f8ce53">THE BIGGEST CITIES OF JALISCO</span>
 	</h4>
-  	<p class="tekstSplits1">Guadalajara in verhouding tot de andere grootste steden van Jalisco.</p>
+  	<p class="tekstSplits1">Back to Mexico it is! On your right you will see a little datavisualisation showing the population of the twenty biggest cities in the state. Guadalajara really tops the list, Zapopan is not even close!</p>
   </div>
 	
 </achtergrond>
 	
-<achtergrond>
+<achtergrondfooter>
   <div class="kader_links3">
 	  
 <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/8996212"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
@@ -199,12 +170,12 @@ var mapAPI = L.map('mapAPI').setView([23.634501, -102.552788], 4);
   
   <div class="kader_rechts3">
     <h4 class="titelSplits1">
-		<span style="color:#f8ce53">DE POPULATIE VAN MEXICO IN VERHOUDING TOT DE MEEST BEVOLKTE LANDEN DOOR DE TIJD HEEN</span>
+		<span style="color:#f8ce53">THE POPULATION OF MÉXICO THROUGHOUT TIME</span>
 	</h4>
-  		<p class="tekstSplits1">The Mekong River is one of the most important rivers in South-Eastern Asia, it flows through 6 countries and it ends into the biggest delta in the region. Even though the river has always been tough to navigate for ships, it has maintained an important status throughout history and continues to do so.</p>
+  		<p class="tekstSplits1">Mexico is a very big country, but it's not the biggest... at all. China and India absolutely blow away the competition, as they both have over a billion people living in their country. Atleast Mexico has surpassed the 100 million, that has to count for something, right?</p>
   		<br>
   </div>
-</achtergrond>
+</achtergrondfooter>
 	
 </binnencontainer>
 	
