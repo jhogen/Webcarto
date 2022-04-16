@@ -98,7 +98,8 @@ h4 {
 }
 
 .frontPageContainer {
-	color: #FFFFFF;
+	color: #f8ce53;
+	filter: drop-shadow(5px 5px 5px #000000);
 	text-align: center;
 	margin-top: 0px;
 	margin-right: 0px;
@@ -127,7 +128,8 @@ h4 {
 }
 
 .titel1 {
-	color: #FFFFFF;
+	color: #f8ce53;
+	filter: drop-shadow(1.5px 1.5px 2px #000000);
 	text-align: left;
 	padding-left: 50px;
 	padding-top: 50px;
@@ -151,13 +153,15 @@ h4 {
 
 
 .titelSplits1 {
-	color: #FFFFFF;
+	color: #f8ce53;
+	filter: drop-shadow(1.5px 1.5px 2px #000000);
 	text-align: left;
 	padding-left: 0px;
 	padding-top: 0px;
 	letter-spacing: 2px;
 	margin-top: 0px;
 }
+
 .tekstSplits1 {
 	color: #FFFFFF;
 	text-align: left;
@@ -258,63 +262,7 @@ achtergrondfooter {
 	height: 320px;
 }
 
-.kader_links4 {
-	width: 43.75%;
-	text-align: left !important;
-	display: inline-block;
-	float: right;
-	padding: 0px;
-	height: 320px;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-image: url("../images/zapopanNature.jfif");
-	filter: drop-shadow(3px 5px 2px #000000);
-	
-}
 
-.kader_rechts4 {
-	width: 45.5%;
-	background-color: #2c2c30 !important;
-	text-align: left !important;
-	display: inline-block;
-	float: left;
-	padding: 50px;
-	height: 320px;
-}
-.kader_links {
-	width: 35.5%;
-	text-align: left !important;
-	display: inline-block;
-	float: left;
-	padding: 0px;
-	height: 320px;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	filter: drop-shadow(3px 5px 2px #000000);
-	
-}
-
-.kader_rechts {
-	width: 45.5%;
-	background-color: #252529 !important;
-	text-align: left !important;
-	display: inline-block;
-	float: right;
-	padding: 50px;
-	height: 320px;
-	
-}.kader_links {
-	width: 35.5%;
-	text-align: left !important;
-	display: inline-block;
-	float: left;
-	padding: 0px;
-	height: 320px;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	filter: drop-shadow(3px 5px 2px #000000);
-	
-}
 
 .mapOpenLayers {
 	width: 100%;

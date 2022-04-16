@@ -22,4 +22,15 @@ var mapAPI = L.map('mapAPI').setView([52.356249,5.620991], 7);
           geoJsonLayer.addData(geojson)
         })
     }
-		// JavaScript Document
+	
+
+  const wfsLayer = new L.geoJson();
+
+	wfsLayer.addTo(mapAPI);
+
+	fetch('https://geoservices.rijkswaterstaat.nl/arcgis2/rest/services/GDR/kerngis_droog/MapServer/30/query?where=1%3D1&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=5&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson', {})
+		.then(response => response.json())
+		.then(data => {
+			wfsLayer.addData(data);
+	});
+
