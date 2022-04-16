@@ -1,4 +1,4 @@
-var map = L.map('map').setView([23.634501, -102.552788], 4);
+var map = L.map('map').setView([20.66682, -103.39182], 4);
 	
 	L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
